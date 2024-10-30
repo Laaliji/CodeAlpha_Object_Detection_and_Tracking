@@ -1,0 +1,179 @@
+.landing-container {
+  position: relative;
+  height: 100vh;
+  color: white;
+  display: flex; /* Enable flexbox */
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.5);
+}
+
+.overlay-left,
+.overlay-right {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.overlay-left {
+  left: 0;
+}
+
+.overlay-right {
+  right: 0;
+}
+
+.navbar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 1rem;
+  z-index: 2;
+  width: 100%;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  margin: 0 1.5rem;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #07af09;
+  text-decoration: none;
+}
+
+.content-wrapper {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 150px); /* Adjust height to account for navbar and footer */
+  padding: 2rem;
+  z-index: 1;
+}
+
+.main-content {
+  position: relative;
+  text-align: center; /* Change text-align to center */
+  padding: 6rem 2rem;
+  z-index: 1;
+  width: 100%; /* Use full width to allow centering */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically if needed */
+  align-items: center; /* Center children horizontally */
+  gap: 2rem;
+}
+
+.title {
+  font-size: 3rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  white-space: normal; /* Allow text to wrap */
+  width: auto; /* Change width to auto for centering */
+  margin: 0; /* Remove margin to ensure it uses full width */
+  padding: 0; /* Remove padding */
+  box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.start-demo-text {
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  text-decoration: underline;
+  margin: 1rem 0; /* Center it with auto margins and space above */
+  transition: color 0.3s ease;
+}
+
+.start-demo-text:hover {
+  color: #058907;
+}
+
+
+
+.video-section {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .main-content,
+  .video-section {
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  .title {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .start-demo-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .start-demo-text {
+    font-size: 0.9rem;
+  }
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 2;
+}
+
+/* Animation classes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.main-content {
+  animation: fadeIn 1s ease-in;
+}

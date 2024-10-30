@@ -1,0 +1,15 @@
+# Node modules and build files
+frontend/node_modules
+frontend/build
+
+# Python dependencies and cache
+__pycache__/
+*.pyc
+*.pyo
+env/
+
+# Ignore environment variables
+.env
+
+# VSCode settings (optional)
+.vscode/
