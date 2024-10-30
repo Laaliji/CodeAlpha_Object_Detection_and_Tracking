@@ -1,3 +1,6 @@
 2024-10-30 21:17:01,520 - __main__ - ERROR - Failed to load YOLO model: No module named 'pandas'
 2024-10-30 21:18:29,663 - __main__ - ERROR - Failed to load YOLO model: No module named 'requests'
 2024-10-30 21:21:05,402 - __main__ - ERROR - Failed to load YOLO model: 'Detect' object has no attribute 'grid'. Cache may be out of date, try `force_reload=True` or see https://docs.ultralytics.com/yolov5/tutorials/pytorch_hub_model_loading for help.
+2024-10-30 22:26:59,662 - __main__ - ERROR - Failed to load YOLO model: 'Detect' object has no attribute 'grid'. Cache may be out of date, try `force_reload=True` or see https://docs.ultralytics.com/yolov5/tutorials/pytorch_hub_model_loading for help.
+2024-10-30 22:31:46,560 - __main__ - ERROR - Failed to load YOLO model: Dataset '/content/gdrive/My Drive/TrainYolov8CustomDataset/google_colab_config.yaml' error  '/content/gdrive/My Drive/TrainYolov8CustomDataset/google_colab_config.yaml' does not exist
+2024-10-30 22:33:59,237 - __main__ - ERROR - Failed to load YOLO model: Dataset '/content/gdrive/My Drive/TrainYolov8CustomDataset/google_colab_config.yaml' error  '/content/gdrive/My Drive/TrainYolov8CustomDataset/google_colab_config.yaml' does not exist
