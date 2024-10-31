@@ -2,7 +2,7 @@
   position: relative;
   height: 100vh;
   color: white;
-  display: flex; /* Enable flexbox */
+  display: flex; 
 }
 
 .background-overlay {
@@ -70,32 +70,32 @@
 .content-wrapper {
   display: flex;
   width: 100%;
-  height: calc(100vh - 150px); /* Adjust height to account for navbar and footer */
+  height: calc(100vh - 150px); 
   padding: 2rem;
   z-index: 1;
 }
 
 .main-content {
   position: relative;
-  text-align: center; /* Change text-align to center */
+  text-align: center; 
   padding: 6rem 2rem;
   z-index: 1;
-  width: 100%; /* Use full width to allow centering */
+  width: 100%; 
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center content vertically if needed */
-  align-items: center; /* Center children horizontally */
+  justify-content: center; 
+  align-items: center; 
   gap: 2rem;
 }
 
 .title {
   font-size: 3rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  white-space: normal; /* Allow text to wrap */
-  width: auto; /* Change width to auto for centering */
-  margin: 0; /* Remove margin to ensure it uses full width */
-  padding: 0; /* Remove padding */
-  box-sizing: border-box; /* Ensure padding is included in width */
+  white-space: normal; 
+  width: auto; 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
 }
 
 .start-demo-text {
@@ -103,7 +103,7 @@
   font-size: 1.2rem;
   cursor: pointer;
   text-decoration: underline;
-  margin: 1rem 0; /* Center it with auto margins and space above */
+  margin: 1rem 0; 
   transition: color 0.3s ease;
 }
 
@@ -121,7 +121,6 @@
   padding-left: 2rem;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .content-wrapper {
     flex-direction: column;
@@ -164,7 +163,6 @@
   z-index: 2;
 }
 
-/* Animation classes */
 @keyframes fadeIn {
   from {
     opacity: 0;

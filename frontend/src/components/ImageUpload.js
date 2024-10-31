@@ -1,19 +1,18 @@
-import React, { useState } from 'react'; // Ensure React and useState are imported
-import axios from 'axios'; // Ensure axios is imported
+import React, { useState } from 'react';
+import axios from 'axios';
 
 const ImageUpload = () => {
-    const [selectedFile, setSelectedFile] = useState(null);
-    const [detections, setDetections] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState(null);
+    // Update this line in ImageUpload.js
+const [selectedFile, setSelectedFile] = useState(null);
+const [isLoading, setIsLoading] = useState(false);
+const [error, setError] = useState(null);
+const [annotatedImageUrl, setAnnotatedImageUrl] = useState(null);
 
     const validateFile = (file) => {
-        // File type validation
         const allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
         if (!allowedTypes.includes(file.type)) {
             throw new Error('Invalid file type. Please upload a JPEG, PNG, or GIF image.');
         }
-        // File size validation (e.g., 5MB limit)
         const maxSize = 5 * 1024 * 1024;
         if (file.size > maxSize) {
             throw new Error('File size too large. Please upload an image under 5MB.');
@@ -42,19 +41,20 @@ const ImageUpload = () => {
 
         setIsLoading(true);
         setError(null);
+        setAnnotatedImageUrl(null);
 
         const formData = new FormData();
         formData.append('image', selectedFile);
 
         try {
-            const response = await axios.post('http://localhost:5000/detect', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-                timeout: 30000, // Timeout of 30 seconds
-                maxContentLength: 5 * 1024 * 1024, // Max content length of 5MB
+            const response = await axios.post('http://localhost:5001/detect', formData, {
+                headers: { 'Content-Type': 'multipart/form-data' },
+                responseType: 'blob',
             });
-            setDetections(response.data);
+
+            const imageUrl = URL.createObjectURL(response.data);
+            setAnnotatedImageUrl(imageUrl); // Display the detected image
+
         } catch (error) {
             setError(error.response?.data?.message || "Error uploading image. Please try again.");
             console.error("Upload error:", error);
@@ -76,26 +76,20 @@ const ImageUpload = () => {
                 onClick={handleUpload}
                 disabled={!selectedFile || isLoading}
             >
-                {isLoading ? 'Uploading...' : 'Detect'}
+                {isLoading ? 'Processing...' : 'Detect'}
             </button>
             
             {error && <div className="error-message">{error}</div>}
             
-            {detections.length > 0 && (
-                <div className="detections-container">
-                    <h3>Detections:</h3>
-                    <ul>
-                        {detections.map((detection, index) => (
-                            <li key={index}>
-                                Class: {detection.class}, 
-                                Confidence: {(detection.confidence * 100).toFixed(2)}%
-                            </li>
-                        ))}
-                    </ul>
+            {annotatedImageUrl && (
+                <div className="download-container">
+                    <a href={annotatedImageUrl} download="detected_image.png">
+                        <button>Download Detected Image</button>
+                    </a>
                 </div>
             )}
         </div>
     );
 };
 
-export default ImageUpload; // Ensure the component is exported
+export default ImageUpload;

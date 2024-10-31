@@ -1,6 +1,5 @@
-// Import the TypingEffect component
 import TypingEffect from 'react-typing-effect';
-import './LandingPage.css'; // Importing the CSS file
+import './LandingPage.css'; 
 import ImageUpload from './ImageUpload';
 
 const LandingPage = () => {
