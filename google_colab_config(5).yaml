@@ -1,0 +1,9 @@
+path: 'content/gdrive/My Drive/TrainYolov8CustomDataset/'
+train: images
+val: images
+
+# Classes
+
+nc: 3
+class : ['big bus', 'big truck','car']
+
